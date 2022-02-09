@@ -1,20 +1,29 @@
-# Single Color RGB565 Blob Tracking Example
-#
-# This example shows off single color RGB565 tracking using the OpenMV Cam.
-
+# Computer vision and control to track and stabilize an orange ping pong ball 
 import sensor, image, time, math, pyb
 
+###############################
 # Controller Tuning:
+###############################
+
 k_p = 10
 k_d = 0.4
 k_i = 0
 
 
-# CONSTANT
-# Color Tracking Threshold  Tuned for the ping pong ball
+###############################
+# Hardware Constants 
+###############################
+
+# Color Tracking Threshold - Tuned for the ping pong ball
 orange_thresh = (60, 100, -20, 40, 40, 90) # (L_min, L_max, a_min, a_max, b_min, b_max)
-flip_img = True
-i2c_addr=0x42
+
+# Set to True if camera module is mounted upside down - otherwise false
+flip_img = True 
+
+
+###############################
+# Helper Functions
+###############################
 
 class PID_controller():
     def __init__(self, kp=k_p, ki=0, kd=0, setpoint=0):
@@ -79,6 +88,10 @@ def setup_camera():
     sensor.set_auto_gain(False) # must be turned off for color tracking
     sensor.set_auto_whitebal(False) # must be turned off for color tracking
 
+
+###############################
+# Main Loop
+###############################
 
 def main():
     setup_camera()
