@@ -1,5 +1,6 @@
 # ping-pong-track-controller
- Feedback controls project for PID control of a second order system
+ Feedback controls project for PID control of a second order system. 
+ Originally developed by Brian Acosta as a labratory exercise for ESE 505 (Feedback Control), at the University of Pennsylvania.
 
  ## Camera Setup Instructions - Read carefully!
  Note - these instructions were adapted from the OpenMV Cam tutorial [here](https://docs.openmv.io/openmvcam/tutorial/hardware_setup.html). You may wish to consult this tutorial if you need more detailed instructions or tourbleshooting advice. 
